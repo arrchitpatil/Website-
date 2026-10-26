@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className+=" js"</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Archit Patil | Computer Engineer and Data Analyst</title>
+<meta name="description" content="Portfolio of Archit Patil: computer engineer working with business data, machine learning projects and web development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0F3; --ink:#16212C; --muted:#52606D; --accent:#2447D6; --rule:#C9D1DA;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --text:"Newsreader",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#111A23;--ink:#E6EBF0;--muted:#9BA8B4;--accent:#86A2FF;--rule:#2B3947;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#111A23;--ink:#E6EBF0;--muted:#9BA8B4;--accent:#86A2FF;--rule:#2B3947;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.6 var(--text);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+
+/* top bar */
+.bar{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.5rem 0;font-family:var(--display);font-weight:500;font-size:1rem}
+.bar nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+.bar a{color:var(--ink);text-decoration:none}
+.bar a:hover{color:var(--accent)}
+
+/* hero */
+.hero{padding:3.5rem 0 3rem}
+h1{font:800 clamp(3.4rem,11vw,8rem)/.92 var(--display);letter-spacing:-.035em;margin:0 0 1.5rem}
+.lede{font-size:clamp(1.25rem,2.6vw,1.65rem);line-height:1.4;max-width:34em;margin:0 0 1.75rem}
+.links{display:flex;gap:1.5rem;flex-wrap:wrap;font-family:var(--display);font-weight:500}
+.signal{margin-top:3rem}
+.signal svg{display:block;width:100%;height:auto;overflow:visible}
+.signal .base{stroke:var(--rule);stroke-width:1;stroke-dasharray:3 5}
+.signal .line{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.signal .peak{fill:var(--accent);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:opacity .25s,transform .25s}
+.signal .peak.on{opacity:1;transform:scale(1)}
+.signal figcaption{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.75rem;font-size:.95rem;color:var(--muted)}
+.count{font-family:var(--display);font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* sections */
+.sec{display:grid;grid-template-columns:11rem 1fr;gap:1rem 3rem;padding:3.25rem 0;border-top:1px solid var(--rule)}
+.sec>h2{font:700 1.15rem/1.3 var(--display);margin:0}
+.body{max-width:40rem}
+.entry+.entry{margin-top:2.5rem}
+h3{font:700 1.4rem/1.25 var(--display);letter-spacing:-.01em;margin:0 0 .15rem}
+.meta{color:var(--muted);margin:0 0 .75rem;font-size:1rem}
+.entry p{margin:0 0 .7rem}
+.entry ul{margin:0;padding-left:1.1rem}
+.entry li{margin-bottom:.55rem;padding-left:.2rem}
+.entry li::marker{color:var(--accent)}
+.stack{font-size:1rem;color:var(--muted);font-style:italic;margin-top:.35rem!important}
+.skills{display:grid;grid-template-columns:auto 1fr;gap:.7rem 1.75rem;margin:0}
+.skills dt{font-family:var(--display);font-weight:700;font-size:1rem;padding-top:.15rem}
+.skills dd{margin:0}
+.contact .big{font:700 clamp(1.5rem,4vw,2.4rem)/1.2 var(--display);letter-spacing:-.02em;word-break:break-word}
+footer{border-top:1px solid var(--rule);padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+
+@media (max-width:720px){
+  .sec{grid-template-columns:1fr;gap:.5rem}
+  .skills{grid-template-columns:1fr;gap:.1rem}
+  .skills dd{margin-bottom:.8rem}
+}
+@media (prefers-reduced-motion:reduce){.signal .peak{transition:none}}
+/* v2: polish and motion */
+:root{--surface:#F8FAFC;--shadow:rgba(22,33,44,.14)}
+@media (prefers-color-scheme:dark){:root:not([data-theme='light']){--surface:#16222E;--shadow:rgba(0,0,0,.5)}}
+:root[data-theme='dark']{--surface:#16222E;--shadow:rgba(0,0,0,.5)}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:30}
+.bar{display:block;position:sticky;top:0;z-index:20;padding:env(safe-area-inset-top,0px) 0 0;background:var(--bg);transition:box-shadow .25s}
+.bar.stuck{box-shadow:0 1px 0 var(--rule),0 12px 24px -18px var(--shadow)}
+.bar .inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem 1rem;padding-top:.9rem;padding-bottom:.9rem}
+.brand{font-weight:800;letter-spacing:-.02em;font-size:1.1rem}
+.bar nav a{position:relative;padding:.3rem 0}
+.bar nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.bar nav a:hover::after,.bar nav a.on::after{transform:scaleX(1)}
+.bar nav a.on{color:var(--accent)}
+.hero{position:relative}
+.hero::before{content:'';position:absolute;inset:0 -1.5rem;z-index:-1;background-image:radial-gradient(var(--rule) 1px,transparent 1px);background-size:22px 22px;-webkit-mask-image:linear-gradient(#000,transparent 80%);mask-image:linear-gradient(#000,transparent 80%)}
+.links a{padding:.7rem 1.2rem;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.links a:first-child{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.links a:hover{transform:translateY(-2px)}
+.links a:last-child:hover{background:var(--ink);color:var(--bg)}
+.chip{display:inline-block;font:500 .82rem/1 var(--display);padding:.38rem .7rem;border:1px solid var(--rule);border-radius:999px;background:var(--bg);color:var(--ink)}
+.skills dd,.stack{display:flex;flex-wrap:wrap;gap:.45rem}
+.stack{font-style:normal}
+.skills dd .chip{transition:border-color .2s,color .2s,transform .2s}
+.skills dd .chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+#projects .entry{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:1.5rem 1.6rem;transition:opacity .6s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s}
+#projects .entry+.entry{margin-top:1.25rem}
+#projects .entry:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 18px 32px -22px var(--shadow)}
+#projects .chip{background:var(--surface)}
+#work .body{position:relative;padding-left:1.75rem}
+#work .body::before{content:'';position:absolute;left:5px;top:.6rem;bottom:.6rem;width:2px;background:var(--rule)}
+#work .entry{position:relative}
+#work .entry::before{content:'';position:absolute;left:-1.75rem;top:.5rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.contact .big a{text-decoration:none;color:var(--ink);background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 3px no-repeat;transition:background-size .4s,color .2s}
+.contact .big a:hover{background-size:100% 3px;color:var(--accent)}
+@media (min-width:721px){.sec>h2{position:sticky;top:5rem;align-self:start}}
+@media (max-width:720px){.bar nav{gap:.9rem;font-size:.92rem}}
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  @keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 -.2em 0)}}
+  @keyframes pop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+  @keyframes pulse{from{box-shadow:0 0 0 0 rgba(36,71,214,.45)}to{box-shadow:0 0 0 12px rgba(36,71,214,0)}}
+  h1{animation:wipe 1s cubic-bezier(.2,.7,.2,1) both}
+  .lede{animation:rise .8s .4s cubic-bezier(.2,.7,.2,1) both}
+  .links{animation:rise .8s .55s cubic-bezier(.2,.7,.2,1) both}
+  .signal{animation:rise .9s .7s cubic-bezier(.2,.7,.2,1) both}
+  .js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .rv.in{opacity:1;transform:none}
+  .js #projects .rv{transition:opacity .6s,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s}
+  .js #projects .rv.in{transition:opacity .6s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s}
+  .js .chip{opacity:0}
+  .in .chip{animation:pop .4s calc(var(--i) * 50ms + .15s) both}
+  .js #work .body::before{transform:scaleY(0);transform-origin:top;transition:transform 1.4s cubic-bezier(.4,0,.2,1)}
+  .js #work .body.in::before{transform:scaleY(1)}
+  #work .entry:first-child::before{animation:pulse 2s infinite}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="bar">
+  <div class="wrap inner">
+    <a class="brand" href="#top">Archit Patil</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#work">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+
+  <main id="top">
+    <section class="hero">
+      <h1>Archit Patil</h1>
+      <p class="lede">I’m a computer engineer from Maharashtra. I work with business data during the day and build machine learning and web projects the rest of the time.</p>
+      <div class="links">
+        <a href="mailto:architpatil487@gmail.com">architpatil487@gmail.com</a>
+        <a href="https://www.linkedin.com/in/archit-patil-" rel="noopener">LinkedIn</a>
+      </div>
+
+      <figure class="signal" aria-label="Chart of accelerometer data with each detected exercise repetition marked">
+        <svg viewBox="0 0 1000 150" role="img" aria-hidden="true">
+          <line class="base" x1="0" y1="75" x2="1000" y2="75"/>
+          <path class="line" id="trace" d=""/>
+          <g id="peaks"></g>
+        </svg>
+        <figcaption>
+          <span>Fake accelerometer data, with peaks found the way my Fitness Tracker finds reps.</span>
+          <span><span class="count" id="count">0</span> reps detected</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="sec" id="about">
+      <h2>About</h2>
+      <div class="body">
+        <p>I studied Computer Engineering at K. K. Wagh in Nashik and graduated in 2025. Right now I’m working on sales, product and inventory data for a LED lighting and solar manufacturer, building dashboards and reports so the team can see what is going on in the business.</p>
+        <p>My own projects are a mix of machine learning, data visualization and web development. I like picking a problem, getting a first version working end to end, and then fixing what is wrong with it.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="work">
+      <h2>Experience</h2>
+      <div class="body">
+        <article class="entry">
+          <h3>Business Operations and Data Analyst Intern</h3>
+          <p class="meta">Integral Power Solutions, Nashik (onsite). June 2026 to Present</p>
+          <ul>
+            <li>Collected and organized sales, product, customer, and inventory data to understand business operations and identify reporting needs.</li>
+            <li>Created dashboards to track sales performance and inventory, giving the team a clearer view of business information.</li>
+            <li>Prepared and maintained Excel reports to keep business data organized and support day to day decision making.</li>
+            <li>Designed and developed the company website to showcase its products, provide business information, and strengthen its online presence.</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <h3>Business Analyst Intern</h3>
+          <p class="meta">R D Mining Equipment Private Limited, Nashik (hybrid). January 2026 to April 2026</p>
+          <ul>
+            <li>Reviewed sales records and product information for crushing and screening equipment, such as jaw crushers, cone crushers, and vibrating screens, to understand sales operations.</li>
+            <li>Used Microsoft Excel to organize sales data, maintain records, and prepare reports to help the team track customer enquiries and sales activities.</li>
+            <li>Worked with the ERP team to understand how sales orders, customer details, and product information were recorded and managed in the system.</li>
+            <li>Documented sales workflows and recurring data management issues, identifying opportunities to improve reporting accuracy and make information easier to access.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="projects">
+      <h2>Projects</h2>
+      <div class="body">
+        <article class="entry">
+          <h3>Fitness Tracker</h3>
+          <p class="meta">Solo. August 2025 to September 2025</p>
+          <p>A Random Forest classifier with 5-fold cross-validation and forward feature selection that tells six gym activities apart (bench press, squat, deadlift, overhead press, row, and rest). It reached <strong>99.53% accuracy</strong>.</p>
+          <p>Repetitions are counted by finding peaks in the accelerometer signal with argrelextrema. A responsive Flask web app shows the predicted exercise and the rep count in real time.</p>
+          <p class="stack">Python, scikit-learn, Flask</p>
+        </article>
+        <article class="entry">
+          <h3>Crime Detection and Analysis System</h3>
+          <p class="meta">Team Lead. February 2025 to April 2025</p>
+          <p>My final year project. It identifies individuals using facial recognition on both static images and live video, built with Python, OpenCV and dlib.</p>
+          <p>The application interface and core functionality are written in C# and .NET, with MySQL storing, searching and retrieving criminal records. Matplotlib charts show crime type distributions and regional patterns across states and cities.</p>
+          <p class="stack">Python, OpenCV, dlib, C#, .NET, MySQL, Matplotlib</p>
+        </article>
+        <article class="entry">
+          <h3>Industrial Lighting Business Website</h3>
+          <p class="meta">Solo. September 2026 to October 2026</p>
+          <p>A responsive multi page website for Integral Power Solutions, a Nashik based LED lighting and solar manufacturer. It has Home, About, Products, Manufacturing, Clients, Catalogue and Contact pages.</p>
+          <p>It shows the LED lighting and solar product lines with product details and a catalogue page, a Clients section with a scrolling logo strip and logo grid, and a contact form that sends enquiries straight to the company by email.</p>
+          <p class="stack">HTML, CSS, JavaScript</p>
+        </article>
+        <article class="entry">
+          <h3>Tableau Sales Analytics Dashboard</h3>
+          <p class="meta">Solo. October 2025 to November 2025</p>
+          <p>A dashboard on the Superstore dataset exploring sales and profit across categories and regions. I built bar charts, line charts, scatter plots, box plots, histograms, heat maps and tree maps to learn which chart type works best for which kind of data, then added bullet graphs and reference lines and combined everything into one dashboard.</p>
+          <p class="stack">Tableau</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="skills">
+      <h2>Skills</h2>
+      <div class="body">
+        <dl class="skills">
+          <dt>Languages</dt><dd>Python, SQL, C#, C++, HTML, CSS, JavaScript</dd>
+          <dt>Frameworks</dt><dd>Flask, .NET, OpenCV</dd>
+          <dt>Tools</dt><dd>Tableau, Power BI, Excel, Snowflake, Databricks, Git, GitHub</dd>
+          <dt>Databases</dt><dd>MySQL, MongoDB</dd>
+          <dt>Concepts</dt><dd>DSA, OOP, DBMS, OS, Computer Networks</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section class="sec" id="education">
+      <h2>Education</h2>
+      <div class="body">
+        <article class="entry">
+          <h3>Bachelor of Engineering, Computer Engineering</h3>
+          <p class="meta">K. K. Wagh Institute of Engineering Education and Research. 2021 to 2025. CGPA 8.24/10</p>
+        </article>
+        <article class="entry">
+          <h3>Rotaract Club of Nasik Youth Force</h3>
+          <p class="meta">Assistant Director, June 2023 to May 2024. Club Services Member, July 2022 to May 2023.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec contact" id="contact">
+      <h2>Contact</h2>
+      <div class="body">
+        <p>Want to talk about a project, a role, or a dataset that needs sorting out? Send me an email.</p>
+        <p class="big"><a href="mailto:architpatil487@gmail.com">architpatil487@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/archit-patil-" rel="noopener">Find me on LinkedIn</a></p>
+      </div>
+    </section>
+  </main>
+
+  <div style="height:3rem"></div>
+</div>
+
+<script>
+// The hero chart: a made up accelerometer trace with 8 reps in the middle.
+// Peak detection is the same idea as scipy's argrelextrema: a sample counts
+// if it is higher than the few samples on either side of it.
+(function () {
+  var N = 240, W = 1000, MID = 75, SCALE = 55, ORDER = 4, THRESHOLD = 0.35;
+  var seed = 7;
+  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+
+  var raw = [];
+  for (var i = 0; i < N; i++) {
+    var t = i / N;
+    var rep = (t > 0.12 && t < 0.88) ? Math.sin(((t - 0.12) / 0.76) * Math.PI * 2 * 8) : 0;
+    raw.push(rep * 0.85 + (rnd() - 0.5) * 0.2);
+  }
+  // light smoothing, like a low pass filter
+  var sig = raw.map(function (v, i) {
+    var a = raw[i - 1] === undefined ? v : raw[i - 1];
+    var b = raw[i + 1] === undefined ? v : raw[i + 1];
+    return (a + v + b) / 3;
+  });
+
+  var peaks = [];
+  for (var j = ORDER; j < N - ORDER; j++) {
+    var isPeak = sig[j] > THRESHOLD;
+    for (var k = 1; k <= ORDER && isPeak; k++) {
+      if (sig[j] <= sig[j - k] || sig[j] <= sig[j + k]) isPeak = false;
+    }
+    if (isPeak) peaks.push(j);
+  }
+
+  function x(i) { return (i / (N - 1)) * W; }
+  function y(v) { return MID - v * SCALE; }
+
+  var d = sig.map(function (v, i) { return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1); }).join("");
+  var trace = document.getElementById("trace");
+  var group = document.getElementById("peaks");
+  var counter = document.getElementById("count");
+  trace.setAttribute("d", d);
+
+  var dots = peaks.map(function (p) {
+    var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    c.setAttribute("class", "peak");
+    c.setAttribute("cx", x(p).toFixed(1));
+    c.setAttribute("cy", y(sig[p]).toFixed(1));
+    c.setAttribute("r", 6);
+    group.appendChild(c);
+    return c;
+  });
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) {
+    dots.forEach(function (c) { c.classList.add("on"); });
+    counter.textContent = peaks.length;
+    return;
+  }
+
+  var len = trace.getTotalLength(), DURATION = 2600;
+  trace.style.strokeDasharray = len;
+  trace.style.strokeDashoffset = len;
+  trace.getBoundingClientRect();
+  trace.style.transition = "stroke-dashoffset " + DURATION + "ms linear";
+  requestAnimationFrame(function () { trace.style.strokeDashoffset = 0; });
+
+  peaks.forEach(function (p, n) {
+    setTimeout(function () {
+      dots[n].classList.add("on");
+      counter.textContent = n + 1;
+    }, (p / N) * DURATION);
+  });
+})();
+
+// Page behaviour: scroll progress, active nav link, reveal on scroll, chips.
+(function () {
+  var bar = document.querySelector('.bar'), prog = document.getElementById('progress');
+  var links = [].slice.call(document.querySelectorAll('.bar nav a'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    prog.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+    bar.classList.toggle('stuck', window.scrollY > 8);
+    var cur = -1;
+    secs.forEach(function (s, i) { if (s.getBoundingClientRect().top < window.innerHeight * 0.4) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+
+  function chips(el) {
+    var parts = el.textContent.split(',');
+    el.textContent = '';
+    parts.forEach(function (t, i) {
+      var s = document.createElement('span');
+      s.className = 'chip';
+      s.style.setProperty('--i', i);
+      s.textContent = t.trim();
+      el.appendChild(s);
+    });
+  }
+  document.querySelectorAll('.skills dd, .stack').forEach(chips);
+
+  var items = document.querySelectorAll('.entry, .skills, .contact .body');
+  var tl = document.querySelectorAll('#work .body');
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.entry, .skills, .contact .body, #work .body').forEach(function (n) { n.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  items.forEach(function (n) { n.classList.add('rv'); io.observe(n); });
+  tl.forEach(function (n) { io.observe(n); });
+})();
+</script>
+</body>
+</html>
